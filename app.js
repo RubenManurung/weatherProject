@@ -44,13 +44,6 @@ app.post("/", function(req, res){
   });
 });
 
-
-//belum implementasi jika nama kota salah dari client side
-
-
-
-
-
 app.listen(3000, ()=>{
   console.log("Server is running in port 3000");
 });
