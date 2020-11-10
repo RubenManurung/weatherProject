@@ -13,7 +13,16 @@
         <img src=<%= imgIcon %> class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Halo warga <%= cityName %></h5>
-          <p class="card-text">Temperatur di kota anda adalah <%= temp %> derajat celcius.</p>
+          <% if(temp < 18){ %>
+            <p class="card-text">Temperatur di kota anda adalah <span class="text-primary""><%= temp %>°C</span></p>
+          <% }else if(temp >=  18 && temp <= 22){ %>
+            <p class="card-text">Temperatur di kota anda adalah <span class="text-success""><%= temp %>°C</span></p>
+          <% }else if(temp > 22 && temp < 27){ %>
+            <p class="card-text">Temperatur di kota anda adalah <span class="text-warning""><%= temp %>°C</span></p>
+          <% }else{ %>
+            <p class="card-text">Temperatur di kota anda adalah <span class="text-danger""><%= temp %>°C</span></p>
+          <% } %>
+
           <p class="card-text">Kondisi sekarang sedang <%= weatherDesc %></p>
           <a href="/" class="btn btn-primary">Back</a>
         </div>
