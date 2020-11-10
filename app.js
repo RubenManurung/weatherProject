@@ -21,7 +21,9 @@ app.post("/", function(req, res){
 
   https.get(url, function(response){
     console.log("Status code : "+response.statusCode);
-    if(response.statusCode == 200){
+    if(response.statusCode == 404){
+      res.render("error");
+    }else{
       response.on("data", function(data){
         const weatherApp = JSON.parse(data);
         console.log(weatherApp);
@@ -37,8 +39,6 @@ app.post("/", function(req, res){
           imgIcon: imgIcon
         });
     });
-    }else{
-      res.render("error");
     }
       
   });
